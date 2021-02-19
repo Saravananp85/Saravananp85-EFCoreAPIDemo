@@ -8,6 +8,7 @@ namespace EFCoreAPIDemo.Repositories
     public interface IUser
     {
         User Get(int id);
+        User Get(string email);
         List<User> GetAll();       
         int Create(User user);
         int Update(User user);

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.JsonPatch;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EFCoreAPIDemo.Controllers
 {
@@ -23,7 +24,8 @@ namespace EFCoreAPIDemo.Controllers
             _apiBehaviorOptions = apiBehaviorOptions;
         }
 
-        [HttpGet]       
+        [HttpGet]
+        [Authorize]
         public IActionResult GetAll()
         {
             return Ok(_userRepositories.GetAll());

@@ -43,6 +43,11 @@ namespace EFCoreAPIDemo.Repositories
             return _demoDBContext.Users.Find(id);
         }
 
+        public User Get(string email)
+        {
+            return _demoDBContext.Users.FirstOrDefault(a => a.EmailId.ToLower() == email.ToLower());
+        }
+
         public int Update(User user)
         {
             if (_demoDBContext.Users.Any(a => a.EmailId.ToLower() == user.EmailId.ToLower() && a.Id != user.Id ))
